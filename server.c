@@ -27,7 +27,7 @@ void udps_respon(int sockfd)
           printf("recvfrom(server) failed.\n");
           exit(1);
         }
-        printf("Server got message %s from IP->%s :%d \n", message, inet_ntoa(addr.sin_addr) ,ntohs(addr.sin_port));
+        printf("Server got message %s from IP->%s :%d\n", message, inet_ntoa(addr.sin_addr) ,ntohs(addr.sin_port));
         nbytes = sendto(sockfd,message,nbytes,0,(struct sockaddr*)&addr,size);
         if(nbytes < 0)
         {
@@ -61,7 +61,7 @@ int main(void)
         return -1;
     }
 
-    printf("IP->%s :%d \n", inet_ntoa(addr.sin_addr), ntohs(addr.sin_port));
+   // printf("IP->%s :%d \n", inet_ntoa(addr.sin_addr), ntohs(addr.sin_port));
 
     udps_respon(sockfd);
     close(sockfd);
